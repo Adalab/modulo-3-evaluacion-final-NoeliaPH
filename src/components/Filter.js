@@ -1,11 +1,14 @@
 import FilterName from "./FilterName";
 import FilterHouse from "./FilterHouse";
 const Filter = (props) => {
-  return(
-  <section>
-    <form>
-      <FilterName  handleFilter ={props.handleFilter} filterName ={props.filterName}/>
-      {/*<label>Busca por personaje:</label>
+  return (
+    <section>
+      <form>
+        <FilterName
+          handleFilter={props.handleFilter}
+          filterName={props.filterName}
+        />
+        {/*<label>Busca por personaje:</label>
       <input className="form__input-text" type="text" name="name" id="name" />
       <label>Selecciona la casa:</label>
       <select>
@@ -14,10 +17,13 @@ const Filter = (props) => {
         <option value="Ravenclaw">Ravenclaw</option>
         <option value="Slytherin">Slytherin</option>
       </select>*/}
-      <FilterHouse />
-    </form>
-  </section>);
+        <FilterHouse 
+        handleFilter={props.handleFilter}
+        filterName={props.filterName}
+        />
+      </form>
+    </section>
+  );
 };
 
 export default Filter;
-

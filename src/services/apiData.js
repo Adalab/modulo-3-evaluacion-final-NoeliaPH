@@ -1,19 +1,18 @@
-const getApiData =()=>{
-    return fetch("http://hp-api.herokuapp.com/api/characters/house/gryffindor")
-    .then((response)=> response.json())
+const getApiData = () => {
+  return fetch(`http://hp-api.herokuapp.com/api/characters`)
+    .then((response) => response.json())
     .then((data) => {
-        const cleanData = data.map((actor)=>{
-            return {
-                name: actor.name,
-                species: actor.species,
-                image: actor.image,
-                id:  `${actor.name}  ${actor.actor}`,
-            };
-        });
-    return cleanData;
-});
-    
+      const cleanData = data.map((character, index) => {
+        return {
+          name: character.name,
+          species: character.species,
+          image: character.image,
+          house: character.house,
+          id: `${character.name}-${character.character}-${index}`,
+        };
+      });
+      return cleanData;
+    });
 };
-
 
 export default getApiData;
