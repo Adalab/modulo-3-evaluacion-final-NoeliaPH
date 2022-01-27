@@ -12,11 +12,15 @@ Podemos realizar dos tipos de búsquedas:
 - por personaje.   🧙
 - un mix de ambas. ✨
 
+Cuando seleccionamos el personaje del que queremos tener más información, nos dirige a una página con los detalles del personaje elegido. 😱
+
 //Construido con 🛠️
 
 ReactJS - Es un framework JavaScript moderno, declarativo y eficiente que permite un desarrollo flexible y hace que la creación de interfaces de usuario interactivas/front-end sea divertida.
+HTML - Es un lenguaje de marcado para la elaboración de páginas web.
 
 Y mucha buena intención y paciencia!!!!!
+
 //Licencia 📄
 
 Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo LICENSE.md para detalles Expresiones de Gratitud 🎁

@@ -1,5 +1,5 @@
 import Character from "./Character";
-
+import CharacterError from "./CharacterError";
 
 function CharacterList(props) {
   const characterElements = props.characters.map((character) => {
@@ -17,9 +17,17 @@ function CharacterList(props) {
       </li>
     );
   });
+  const foundError = ()=>{
+    if (props.characters.length === 0){
+      return <CharacterError/>;
+    } else {
+      return characterElements;
+    }
+  }
+
   return (
     <section>
-      <ul>{characterElements}</ul>
+      <ul>{foundError()}</ul>
     </section>
   );
 }

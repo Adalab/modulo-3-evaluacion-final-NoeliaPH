@@ -1,6 +1,26 @@
 import { Link } from "react-router-dom";
 import "../styles/App.scss";
+import CharacterError from "./CharacterError";
 function CharacterDetail(props) {
+  const foundError = ()=>{
+    if (!props.character){
+      return <CharacterError/>;
+    } else {
+      return (<article>
+      <Link to="/">Volver</Link>
+      <img
+        src={getImage()}
+        alt={`Foto de ${props.character.name}`}
+        title={`Foto de ${props.character.name}`}
+      />
+      <h4>Nombre: {props.character.name} </h4>
+      <p>Estatus: {getStatus()}</p>
+      <p>Especie: {getSpecie()}</p>
+      <p>Género: {getGender()}</p>
+      <p>Casa: {props.character.house}</p>
+    </article>)
+    }
+  };
     const getImage =()=>{
         return props.character.image === "" ? "https://i.pinimg.com/736x/9c/2b/39/9c2b39efc4060dfcf659fcf0e8e4b905.jpg":props.character.image;
           };
@@ -38,19 +58,7 @@ function CharacterDetail(props) {
     };
   };
   return (
-    <article>
-      <Link to="/">Volver</Link>
-      <img
-        src={getImage()}
-        alt={`Foto de ${props.character.name}`}
-        title={`Foto de ${props.character.name}`}
-      />
-      <h4>Nombre: {props.character.name} </h4>
-      <p>Estatus: {getStatus()}</p>
-      <p>Especie: {getSpecie()}</p>
-      <p>Género: {getGender()}</p>
-      <p>Casa: {props.character.house}</p>
-    </article>
+    foundError()
   );
 }
 export default CharacterDetail;
