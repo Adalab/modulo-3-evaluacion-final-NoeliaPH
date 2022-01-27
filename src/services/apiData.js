@@ -8,6 +8,8 @@ const getApiData = () => {
           species: character.species,
           image: character.image,
           house: character.house,
+          alive: character.alive,
+          gender: character.gender,
           id: `${character.name}-${character.character}-${index}`,
         };
       });

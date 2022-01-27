@@ -1,10 +1,10 @@
 import "../styles/App.scss";
 import { useState, useEffect } from "react";
-//import { Route, Switch, useRouteMatch, Link } from 'react-router-dom';
+import { Route, Switch } from "react-router-dom";
 import getApiData from "../services/apiData";
 import CharactersList from "./CharacterList";
 import Filters from "./Filter";
-import FilterHouse from "./FilterHouse";
+import CharacterDetail from "./CharacterDetail";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -24,22 +24,36 @@ function App() {
       setFilterHouse(data.value);
     }
   };
-  const filteredCharacteres = characters.filter((character) => {
-    return character.name.toLowerCase().includes(filterName.toLowerCase());
-  }).filter((character) => { 
-    
+  const filteredCharacteres = characters
+    .filter((character) => {
+      return character.name.toLowerCase().includes(filterName.toLowerCase());
+    })
+    .filter((character) => {
       return character.house === filterHouse;
-    }
-  );
-
+    });
+  const renderCharacterDetail = (props) => {
+    const routeId = props.match.params.characterId;
+    const foundCharacter = characters.find(
+      (character) => character.id === routeId
+    );
+    console.log(routeId);
+    return <CharacterDetail character={foundCharacter} />;
+  };
   return (
     <div>
       <header>
         <h1>HARRY POTTER</h1>
       </header>
-      <div>
-        <Filters handleFilter={handleFilter} filterName={filterName} filterHouse={filterHouse}/>
-        {/*<section>
+      <main>
+        <Switch>
+          <Route path="/" exact>
+            <div>
+              <Filters
+                handleFilter={handleFilter}
+                filterName={filterName}
+                filterHouse={filterHouse}
+              />
+              {/*<section>
           <form>
             <label>Busca por personaje:</label>
             <input
@@ -58,11 +72,11 @@ function App() {
             </select>
           </form>
         </section>*/}
-        <section>
-          <ul>
-            <CharactersList characters={filteredCharacteres} />
-          </ul>
-          {/*<ul>
+              <section>
+                <ul>
+                  <CharactersList characters={filteredCharacteres} />
+                </ul>
+                {/*<ul>
           <li>
             <a href="url">
               <img 
@@ -75,8 +89,18 @@ function App() {
           </li>
           
         </ul>*/}
-        </section>
-      </div>
+              </section>
+            </div>
+          </Route>
+          <Route
+            path="/character/:characterId"
+            render={renderCharacterDetail}
+          ></Route>
+        </Switch>
+      </main>
+      <footer>
+        <small>&copy; 2022 Noe 😃 </small>
+      </footer>
     </div>
   );
 }
