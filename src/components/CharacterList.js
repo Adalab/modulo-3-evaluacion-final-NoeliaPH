@@ -1,5 +1,6 @@
 import Character from "./Character";
 
+
 function CharacterList(props) {
   const characterElements = props.characters.map((character) => {
     return (

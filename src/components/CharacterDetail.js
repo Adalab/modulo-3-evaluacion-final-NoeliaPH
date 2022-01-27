@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "../styles/App.scss";
 function CharacterDetail(props) {
     const getImage =()=>{
-        return props.character.image === "" ? "https://via.placeholder.com/210x295/ff3300/666666/?text=HarryPotter":props.character.image;
+        return props.character.image === "" ? "https://i.pinimg.com/736x/9c/2b/39/9c2b39efc4060dfcf659fcf0e8e4b905.jpg":props.character.image;
           };
   const getStatus = () => {
     return props.character.alive === true ? "Vivo" : "Fallecido";
