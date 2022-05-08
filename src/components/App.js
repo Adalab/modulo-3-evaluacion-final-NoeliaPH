@@ -10,6 +10,7 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const [filterName, setFilterName] = useState("");
   const [filterHouse, setFilterHouse] = useState("Gryffindor");
+  const [filterActor, setFilterActor] = useState("");
 
   useEffect(() => {
     getApiData().then((charactersData) => {
@@ -22,6 +23,8 @@ function App() {
       setFilterName(data.value);
     } else if (data.key === "house") {
       setFilterHouse(data.value);
+    } else if (data.key === "actor"){
+      setFilterActor(data.value)
     }
   };
   const filteredCharacteres = characters
@@ -30,7 +33,11 @@ function App() {
     })
     .filter((character) => {
       return character.house === filterHouse;
-    });
+    })
+    .filter((character)=>{
+      return character.actor.toLowerCase().includes(filterActor.toLowerCase());
+    })
+    ;
   const renderCharacterDetail = (props) => {
     const routeId = props.match.params.characterId;
     const foundCharacter = characters.find(
@@ -42,53 +49,22 @@ function App() {
   return (
     <div>
       <header>
-        <h1>HARRY POTTER</h1>
+        <h1 className="h1">HARRY POTTER</h1>
       </header>
-      <main>
+      <main className="main">
         <Switch>
           <Route path="/" exact>
-            <div>
-              <Filters
+            <div className="filters">
+              <Filters 
                 handleFilter={handleFilter}
                 filterName={filterName}
                 filterHouse={filterHouse}
-              />
-              {/*<section>
-          <form>
-            <label>Busca por personaje:</label>
-            <input
-              className="form__input-text"
-              type="text"
-              name="name"
-              id="name"
-            />
-            <label>Selecciona la casa:</label>
-
-            <select>
-              <option value="Gryffindor">Gryffindor</option>
-              <option value="Hufflepuf">Hufflepuf</option>
-              <option value="Ravenclaw">Ravenclaw</option>
-              <option value="Slytherin">Slytherin</option>
-            </select>
-          </form>
-        </section>*/}
+                filterActor={filterActor}
+              /> 
               <section>
                 <ul>
                   <CharactersList characters={filteredCharacteres} />
                 </ul>
-                {/*<ul>
-          <li>
-            <a href="url">
-              <img 
-              src="url" 
-              alt="Foto de ..." 
-              title="Foto de ..." />
-              <h4>Nombre</h4>
-              <p>Humano/Gigante...</p>
-            </a>
-          </li>
-          
-        </ul>*/}
               </section>
             </div>
           </Route>

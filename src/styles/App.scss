@@ -1,0 +1,44 @@
+body {
+  background: url("../images/stars.jpg") no-repeat fixed center;
+  background-size: cover;
+  color: white;
+  img {
+    height: 350px;
+    width: 350px;
+    object-fit: center;
+  }
+}
+h1 {
+  color: white;
+  font-weight: normal;
+  font-size: 60px;
+  font-family: Arial;
+  text-transform: uppercase;
+  text-align: center;
+}
+.filters {
+  //color: white;
+
+  font-weight: normal;
+  font-size: 30px;
+  font-family: Arial;
+  //text-transform: uppercase;
+  text-align: center;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 350px);
+  margin: 20px;
+
+  //@include tablet {
+  //   flex-direction: row;
+  //  width: 740px;
+  //  min-height: calc(100vh - 375px);
+  //   margin: 20px auto;
+  //}
+
+  // @include desktop {
+  //   width: 910px;//
+  // }
+}

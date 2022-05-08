@@ -10,6 +10,7 @@ const getApiData = () => {
           house: character.house,
           alive: character.alive,
           gender: character.gender,
+          actor: character.actor,
           id: `${character.name}-${character.character}-${index}`,
         };
       });

@@ -1,5 +1,7 @@
 import FilterName from "./FilterName";
 import FilterHouse from "./FilterHouse";
+import FilterActor from "./FilterActor";
+
 const Filter = (props) => {
   return (
     <section>
@@ -8,18 +10,13 @@ const Filter = (props) => {
           handleFilter={props.handleFilter}
           filterName={props.filterName}
         />
-        {/*<label>Busca por personaje:</label>
-      <input className="form__input-text" type="text" name="name" id="name" />
-      <label>Selecciona la casa:</label>
-      <select>
-        <option value="Gryffindor">Gryffindor</option>
-        <option value="Hufflepuf">Hufflepuf</option>
-        <option value="Ravenclaw">Ravenclaw</option>
-        <option value="Slytherin">Slytherin</option>
-      </select>*/}
         <FilterHouse 
         handleFilter={props.handleFilter}
         filterName={props.filterName}
+        />
+        <FilterActor
+          handleFilter={props.handleFilter}
+          filterActor={props.filterActor}
         />
       </form>
     </section>
