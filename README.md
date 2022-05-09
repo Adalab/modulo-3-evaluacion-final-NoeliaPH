@@ -3,7 +3,6 @@
 
 En la evaluación de este módulo sobre React, l@s profes de Adalab nos han propuesto este un buscador de series de Harry Potter y la verdad, es que nosotras encantadas! 😍 :)
 
-http://beta.adalab.es/modulo-3-evaluacion-final-NoeliaPH/
 
 //Instrucciones 🔧
 
